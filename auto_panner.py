@@ -47,10 +47,10 @@ def pan_audio_channel(channel, pan_amount):
     return panned_channel
 if __name__ == "__main__":
     # Replace 'input_audio.mp3' with the name of your input audio file.
-    input_file_path = r'C:\Users\AICTE\OneDrive\Desktop\audio_alter\input\futuristic_beat.mp3'
+    input_file_path = r'C:\Users\Karthik Roy\audio_alter\audio_folder\futuristic_beat.mp3'
 
     # Replace 'output_panned_audio.mp3' with the desired output file name.
-    output_file_path = r'C:\Users\AICTE\OneDrive\Desktop\audio_alter\output\output_panned_audio.mp3'
+    output_file_path = r'C:\Users\Karthik Roy\audio_alter\audio_folder\autopanner_futuristic_beat.mp3'
 
     # Adjust the pan_amount to control the intensity of the auto panner effect (0.0 to 1.0).
     pan_amount = 0.7
