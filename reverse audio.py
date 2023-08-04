@@ -31,7 +31,7 @@ def reverse_audio_file(input_file, output_file):
     print(f"Audio reversed and saved to '{output_file}'.")
 
 if __name__ == "__main__":
-    input_audio_file = r"C:\Users\Karthik Roy\audio_alter\audio_folder\futuristic_beat.mp3"  # Replace this with your input audio file
-    output_audio_file = "output_audio_reverse.mp3"  # Replace this with the desired output filename
+    input_audio_file = r"C:\Users\Karthik Roy\audio_alter\audio_folder\reverse_We-Don't-Talk-Anymore.mp3"  # Replace this with your input audio file
+    output_audio_file = r"C:\Users\Karthik Roy\audio_alter\audio_folder\test_We-Don't-Talk-Anymore.mp3"  # Replace this with the desired output filename
 
     reverse_audio_file(input_audio_file, output_audio_file)

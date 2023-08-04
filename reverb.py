@@ -1,24 +1,26 @@
-from pysndfx import AudioEffectsChain
-import librosa
 
-# Function to apply reverb effect to an audio file
-def apply_reverb(input_file, output_file):
-    # Create an AudioEffectsChain with the reverb effect
-    fx = AudioEffectsChain().reverb()
+from pydub import AudioSegment
+from pydub.utils import make_chunks
+import os
 
-    # Load the audio file and the sample rate using librosa
-    y, sr = librosa.load(input_file, sr=None)
+def add_reverb(input_file, output_file, room_size=1.0):
+    # Load the audio file
+    audio = AudioSegment.from_file(input_file)
 
-    # Apply the reverb effect to the audio
-    y_reverb = fx(y)
+    # Apply reverb
+    audio_with_reverb = audio.overlay(audio, position=0, gain_during_overlay=room_size)
 
-    # Save the processed audio to the output file
-    librosa.output.write_wav(output_file, y_reverb, sr)
+    # Export the audio with reverb
+    audio_with_reverb.export(output_file, format="mp3")  # You can change the format if needed
 
 if __name__ == "__main__":
-    # Replace these paths with the input and output file paths
-    input_file_path = r'C:\Users\AICTE\OneDrive\Desktop\audio_alter\input\9.mp3'
-    output_file_path = r'C:\Users\AICTE\OneDrive\Desktop\audio_alter\output\output_panned_audio1.mp3'
+    input_file_path = r"C:\Users\Karthik Roy\audio_alter\audio_folder\We-Don't-Talk-Anymore.mp3"  # Replace with the path to your input audio file
+    output_file_path = r"C:\Users\Karthik Roy\audio_alter\audio_folder\reverb_We-Don't-Talk-Anymore.mp3"
 
-    # Apply the reverb effect to the audio file
-    apply_reverb(input_file_path, output_file_path)
+    # Check the file size before processing
+    if os.path.getsize(input_file_path) > 50 * 1024 * 1024:
+        print("Error: File size exceeds 50MB.")
+    else:
+        room_size_factor =   # You can adjust the room size factor as needed
+        add_reverb(input_file_path, output_file_path, room_size_factor)
+        print("Reverb added and output file saved successfully.")
